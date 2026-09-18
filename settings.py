@@ -12,6 +12,9 @@ class Settings(BaseSettings):
     scoring_api_base_url: HttpUrl = HttpUrl(
         "https://agents-course-unit4-scoring.hf.space"
     )
+    evaluation_api_base_url: HttpUrl = HttpUrl(
+    "https://agents-course-unit4-scoring.hf.space"
+)
     chess_eval_url: HttpUrl = HttpUrl(
         "https://stockfish.online/api/s/v2.php"
     )

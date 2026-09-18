@@ -36,7 +36,7 @@ class GetTaskFileTool(BaseCustomTool):
         
     def forward(self, task_id: str, file_name: str) -> str:
         try:
-            response = requests.get(f"{self.settings.evaluation_api_base_url}/files/{task_id}", timeout=15)
+            response = requests.get(f"{str(self.settings.evaluation_api_base_url).rstrip(chr(47))}/files/{task_id}", timeout=15)
             response.raise_for_status()
             with open(f"{self.directory_name}/{file_name}", 'wb') as file:
                 file.write(response.content)

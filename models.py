@@ -7,7 +7,8 @@ class GoogleModelID():
   GEMINI_2_5_FLASH_PREVIEW = "gemini-2.5-flash-preview"
 
 class OpenRouterModelID():
-  QWEN_3_14B_FREE = "openrouter/qwen/qwen3-14b:free"
+  FREE_ROUTER = "openrouter/openai/gpt-4o-mini"
+  STRONG_MODEL = "openrouter/openai/gpt-4.1-mini"
   GPT_4_1_MINI = "openrouter/openai/gpt-4.1-mini"
   GPT_O4_MINI = "openrouter/openai/o4-mini"
   GPT_O4_MINI_HIGH = "openrouter/openai/o4-mini-high"

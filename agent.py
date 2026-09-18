@@ -19,11 +19,12 @@ BASE_PYTHON_TOOLS["io"] = io
 BASE_PYTHON_TOOLS["contextlib"] = contextlib
 BASE_PYTHON_TOOLS["exec"] = exec
 
+
 class ResearchAgent:
     def __init__(self, settings: Settings):
         self.agent = CodeAgent(
             name="researcher",
-            description="Searches the web, works with files, and answers questions for you. Give it your query as an argument.",
+            description="Searches the web, works with files, watches videos, listens to audio, and answers questions for you. Give it your query as an argument.",
             add_base_tools=False,
             tools=[GoogleSearchTool("serper"),
                    VisitWebpageTool(max_output_length=100000),
@@ -48,9 +49,9 @@ class ResearchAgent:
             max_steps=10,
             verbosity_level=1,
             model=LiteLLMModel(
-                model_id=OpenRouterModelID.GPT_O4_MINI_HIGH,
+                model_id=OpenRouterModelID.STRONG_MODEL,
                 api_key = settings.openrouter_api_key.get_secret_value(),
-                temperature=0.0, timeout=180
+                temperature=0.0, timeout=180, num_retries=3
             )
         )
 
@@ -62,7 +63,7 @@ class ChessAgent:
             add_base_tools=False,
             tools=[ChessBoardFENTool(),
                    BestChessMoveTool(settings),
-                   ConvertChessMoveTool(settings, OpenRouterModelID.GPT_O4_MINI),
+                   ConvertChessMoveTool(settings, OpenRouterModelID.FREE_ROUTER),
                    ],
             additional_authorized_imports=[
                 "unicodedata",
@@ -82,9 +83,9 @@ class ChessAgent:
             max_steps=10,
             verbosity_level=1,
             model=LiteLLMModel(
-                model_id=OpenRouterModelID.GPT_O4_MINI,
+                model_id=OpenRouterModelID.FREE_ROUTER,
                 api_key = settings.openrouter_api_key.get_secret_value(),
-                temperature=0.0, timeout=180
+                temperature=0.0, timeout=180, num_retries=3
             )
         )
 
@@ -95,15 +96,14 @@ class ManagerAgent:
         self.agent = CodeAgent(
             tools=[GetTaskFileTool(settings), FinalAnswerTool()],
             model=LiteLLMModel(
-                model_id=OpenRouterModelID.GPT_O4_MINI,
+                model_id=OpenRouterModelID.FREE_ROUTER,
                 api_key = settings.openrouter_api_key.get_secret_value(),
-                temperature=0.0, timeout=180
+                temperature=0.0, timeout=180, num_retries=3
             ),
             managed_agents=[self.researcher, self.chess_player],
         )
-        # print("BasicAgent initialized.")
     def __call__(self, question: str) -> str:
         logger.info(f"Agent received question (first 50 chars): {question[:50]}...")
         final_answer = self.agent.run(question)
         logger.info(f"Agent returning fixed answer: {final_answer}")
-        return final_answer 
+        return final_answer
