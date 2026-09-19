@@ -1,6 +1,6 @@
-﻿---
+---
 title: Final Assignment
-emoji: 🕵🏻‍♂️
+emoji: ???????
 colorFrom: indigo
 colorTo: indigo
 sdk: gradio
@@ -14,7 +14,7 @@ license: mit
 <br />
 <div align="center">
   <a href="https://huggingface.co/learn/agents-course/unit4/introduction">
-    <img src="images/unit-4.jpg" alt="Hugging Face Agents Course" width="800">
+    
   </a>
 
   <h3 align="center">Agents Course Final Project</h3>
