@@ -1,6 +1,6 @@
----
+﻿---
 title: Final Assignment
-emoji: ???????
+emoji: 🎯
 colorFrom: indigo
 colorTo: indigo
 sdk: gradio
