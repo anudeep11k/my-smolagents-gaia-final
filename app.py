@@ -11,8 +11,13 @@ import os
 import pandas as pd
 import gradio as gr
 import logging
+import spaces
 logging.basicConfig(level=logging.INFO, force=True)
 logger = logging.getLogger(__name__)
+
+@spaces.GPU
+def _zerogpu_placeholder():
+    pass
 settings = Settings()
 evaluator = Evaluator(settings)
 runner = Runner(settings)
