@@ -1,3 +1,16 @@
+﻿---
+title: Final Assignment
+emoji: 🕵🏻‍♂️
+colorFrom: indigo
+colorTo: indigo
+sdk: gradio
+sdk_version: 5.29.0
+app_file: app.py
+pinned: false
+hf_oauth: true
+hf_oauth_expiration_minutes: 480
+license: mit
+---
 <br />
 <div align="center">
   <a href="https://huggingface.co/learn/agents-course/unit4/introduction">
@@ -7,7 +20,7 @@
   <h3 align="center">Agents Course Final Project</h3>
 
   <p align="center" style="width:80%">
-    Final hands-on assignment for the Hugging Face Agents course. In this project I built a multi-agent solution, evaluated it against questions from the General AI Assistants (GAIA) benchmark (level one only), and got creative with some agent and tool improvements. 
+    Final hands-on assignment for the Hugging Face Agents course. In this project I built a multi-agent solution, evaluated it against questions from the General AI Assistants (GAIA) benchmark (level one only), and got creative with some agent and tool improvements.
 </div>
 
 ## About The Project
@@ -18,22 +31,15 @@ Achieving 30 points for the certification was relatively easy with the template 
 * Reliability
 * Response Times
 
-[![HF Space Screenshot](images/submit_answers.jpg)](https://huggingface.co/spaces/civerson916/Final_Assignment_Template)
+Beyond what looks like a smolagents guided tour, you can find the following in this repo...
 
-[![Langfuse Screenshot](images/langfuse.jpg)](https://huggingface.co/learn/agents-course/unit4/hands-on)
-
-Beyond what looks like a smolagents guided tour, you can find the following in this repo... 
-
-* Research agent armed with Google search via [Serper](https://serper.dev/) and both Audo and Video Understanding via [Gemini](https://ai.google.dev/gemini-api/docs/)
-* Chess agent leveraging my [board_to_fen](https://github.com/civerson/board_to_fen) fork and a Stockfish API.
-* [Langfuse](https://langfuse.com/) setup boilerplate, a working example. This is an absolute must.
-* [Pydantic](https://docs.pydantic.dev/latest/) settings for type safety, centralized, and encapsulated config.
-* Basic parallel agent task execution, compatible with [smolagents](https://huggingface.co/docs/smolagents/main/en/index) and the [Gradio](https://www.gradio.app/) UI.
-
+* Research agent armed with Google search via Serper and both Audio and Video Understanding via Gemini
+* Chess agent leveraging a board_to_fen fork and a Stockfish API.
+* Langfuse setup boilerplate, a working example.
+* Pydantic settings for type safety, centralized, and encapsulated config.
+* Basic parallel agent task execution, compatible with smolagents and the Gradio UI.
 
 ## Getting Started
-
-To get a local copy up and running follow these steps.
 
 ### Prerequisites
 
@@ -43,31 +49,7 @@ To get a local copy up and running follow these steps.
 
 ### Installation
 
-1. Get an API key for the following services: [OpenRouter](https://openrouter.ai/), [Gemini](https://ai.google.dev/gemini-api/docs/api-key), [Serper](https://serper.dev/), and [Langfuse](https://langfuse.com/). The HF username and space are only used when submitting answers for evaluation, but must be present to startup. If you run this in your own HF space, these will already be set for you. 
-2. Clone the repo and install packages
-   ```sh
-   git clone https://github.com/civerson/smolagents-gaia-final.git
-   pip install -r requirements.txt
-   ```
-3. Enter your API keys in a `.env` or set them as follows
-   ```sh
-   OPENROUTER_API_KEY = 'ENTER YOUR API'
-   GEMINI_API_KEY = 'ENTER YOUR API'
-   SERPER_API_KEY = 'ENTER YOUR API'
-   LANGFUSE_PUBLIC_KEY = 'ENTER YOUR API'
-   LANGFUSE_SECRET_KEY = 'ENTER YOUR API'
-   USERNAME = 'ENTER YOUR HF USERNAME'
-   SPACE_ID = 'ENTER YOUR HF SPACE'
-   ```
-4. Run the app
-   ```sh
-   python app.py
-   ```
-5. Change git remote url to avoid accidental pushes to base project
-   ```sh
-   git remote set-url origin github_username/repo_name
-   git remote -v # confirm the changes
-   ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+1. Get an API key for OpenRouter, Gemini, Serper, and Langfuse.
+2. Clone the repo and install packages.
+3. Enter your API keys in a .env file.
+4. Run the app with: python app.py
